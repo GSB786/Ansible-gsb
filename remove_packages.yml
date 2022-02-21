@@ -1,0 +1,11 @@
+---
+- name: removing packages
+  hosts: all 
+  become: true
+  gather_facts: no
+
+  tasks:
+  - name: removing packages
+    yum:
+      name: ['git', 'wget', 'tree', 'telnet', 'make', 'gzip']
+      state: removed

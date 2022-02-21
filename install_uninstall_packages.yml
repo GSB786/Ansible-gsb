@@ -1,0 +1,15 @@
+---
+- name: installing and uninstalling packages 
+  hosts: all 
+  become: true
+  gather_facts: no
+
+  tasks:
+  - name: installing packages
+    yum: 
+      name: ['git', 'wget']
+      state: installed
+  - name: uninstalling packages
+    yum:
+      name: ['telnet', 'tree', 'make']
+      state: removed

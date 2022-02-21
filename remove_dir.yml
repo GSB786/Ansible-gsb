@@ -1,0 +1,13 @@
+---
+- name: removing a directory
+  hosts: all
+  become: true
+  gather_facts: no
+
+  tasks:
+  - name: remove a dir1
+    file:
+      path: /opt/dir1
+      state: absent
+      mode: 0755
+      owner: ansadmin

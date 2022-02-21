@@ -1,0 +1,12 @@
+---
+- name: creating files
+  hosts: all 
+  become: true
+  gather_hosts: no
+
+  tasks:
+  - name: creating file
+    file:
+      path: /opt/ansadmin/testfile1
+      state: touch
+      mode: 0755 
