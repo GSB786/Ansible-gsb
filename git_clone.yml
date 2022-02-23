@@ -1,0 +1,14 @@
+---
+- name: cloning repo
+  hosts: webservers
+  become: true
+  gather_facts: yes
+  vars_files:
+      - vault2.yml
+  tasks:
+  - name: cloning github repo
+    git:
+      repo: https://GSB786:{{ git_password }}@github.com/GSB786/vault-test.git
+      dest: /home/ansadmin/vault-test
+      clone: yes
+      update: yes

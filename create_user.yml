@@ -1,10 +1,18 @@
 ---
-- name: creating user
+- name: creating user sonia
   hosts: all 
   become: true
-  gather_facts: no
+  # gather_facts: no
 
   tasks:
-  - name: creating user sheela
-    user: name=sheela
+  - name: creating user sonia 
+    user:
+      name: sonia
 
+  - name: creating a directory
+    file:
+      path: /opt/sonia_tem_dir
+      state: directory
+      owner: sonia
+      group: sonia
+      mode: 0755
